@@ -15,6 +15,8 @@ namespace Commander.Data
         // next step is to return a single command back to the user based on an ID that they are going to provide 
         // return type is command
         Command GetCommandById(int id);
+        // these are 2 simple commands that our repository should provide to any consumer 
+        // now we need to create an implementation of this interface and we will put it inside thid folder
 
 
 
