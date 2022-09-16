@@ -1,3 +1,7 @@
+
+
+using Commander.Data;
+
 namespace Commander
 {
 public class Startup
@@ -12,6 +16,15 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddRazorPages();
+
+        // we will add our registration -> we make use of our Services Collection 
+        // After the <> I tell my depency injection system my interface (in our case ICommanderRepo)
+        // and it is mapped to our MockCommanderRepo
+        services.AddScoped<ICommanderRepo, MockCommanderRepo>();
+
+        // whenever our application asks for ICommanderRepo, give it MockCommanderRepo
+        // if this changes in the future all we need to do is swap the MockCommanderRepo with the one we want
+        // the rest of our code doesn't change
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
