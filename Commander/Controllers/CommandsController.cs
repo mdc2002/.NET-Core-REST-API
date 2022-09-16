@@ -11,7 +11,20 @@ namespace Commander.Controllers
     public class CommandsController : ControllerBase
     // ControllerBase --> A base class for an MVC controller without view support
     {
-        private readonly MockCommanderRepo _repository = new MockCommanderRepo();
+        private readonly ICommanderRepo _repository;
+
+        //as said, we need to cretae a constructor in order for the dependency to be injected
+        //shortcut -> ctor (to make a constructor)
+        //for easiness we will create the ICommanderRepo as repository
+        public CommandsController(ICommanderRepo repository)
+        {
+            //we want whatever is injected via the DIS into the repository parameter, we want to assign it to _repository
+            _repository = repository;
+        }
+
+
+        // we comment the following one as we won't use it anymore
+        //private readonly MockCommanderRepo _repository = new MockCommanderRepo();
         //we are now going to create our first action-result endpoint which will realte to getting all of our resources
         //to see these action results respond to HTTP GET request, we will decorate them with HTTP GET
         // The following will respond to: GET api/commands
