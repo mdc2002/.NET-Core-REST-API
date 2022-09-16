@@ -21,7 +21,7 @@ namespace Commander.Controllers
             //we want whatever is injected via the DIS into the repository parameter, we want to assign it to _repository
             _repository = repository;
         }
-
+        // when we use DI, this pattern shows up very often (the constructor, having some attributes created in the parameters, private readonly fields denoted by underscore, and finally assigning hte dependency injected value to our private field for use with the rest of the class)
 
         // we comment the following one as we won't use it anymore
         //private readonly MockCommanderRepo _repository = new MockCommanderRepo();
