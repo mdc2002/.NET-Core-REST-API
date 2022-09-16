@@ -32,7 +32,11 @@ namespace Commander.Controllers
 
             return Ok(commandItem);
         }
-        // so we have made two different endpoints that respond to different URIs 
+        // so we have created two different API endpoints that respond to different URIs 
 
     }
 }
+
+
+// now instead of asking for a concrete implementation of a class we will move to asking for an implementation of our interface
+// and in the backend, using dependency injection, we can swap out how we implement that interface and our CommandsController class doesn't care how we've implemented it 
