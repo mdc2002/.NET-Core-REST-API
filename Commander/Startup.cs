@@ -1,5 +1,5 @@
 
-
+using Microsoft.EntityFrameworkCore;
 using Commander.Data;
 
 namespace Commander
@@ -25,6 +25,11 @@ public class Startup
         // whenever our application asks for ICommanderRepo, give it MockCommanderRepo
         // if this changes in the future all we need to do is swap the MockCommanderRepo with the one we want
         // the rest of our code doesn't change
+
+
+        //this is where we will configure our DbContext class to use with the rest of the application
+        services.AddDbContext<CommanderContext>(opt => opt.UseSqlServer 
+        (Configuration.GetConnectionString("CommanderConnection")));
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
