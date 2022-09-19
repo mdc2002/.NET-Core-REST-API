@@ -18,5 +18,6 @@ namespace Commander.Data
         // so what we want is to represent our Command object down to our database as a DbSet and it is going to be called Commands
         // we have our DbContext, and our database (SQLServer), and we need to connect these two
         // we'll do this with a connection string
+        
     }
 }
